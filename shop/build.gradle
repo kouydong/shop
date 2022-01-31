@@ -1,0 +1,66 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// 타임리프를 사용하기 위한 의존성 추가
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	// Spring boot에서 웹 환경을 의존성 추가
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// Spring boot JPA 의존성 추가
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	// Spring boot 테스트 환경 의존성 추가
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// Spring boot 개발툴 추가
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	// Spring boot 값검증툴 추가
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	// Spring Security 의존성 추가
+	//implementation 'org.springframework.boot:spring-boot-starter-security'
+	//implementation 'org.springframework.security:spring-security-test'
+
+	// H2 데이터베이스 의존성 추가
+	runtimeOnly 'com.h2database:h2'
+
+	// MySQL 데이터베이스 의존성 추가
+	runtimeOnly 'mysql:mysql-connector-java'
+
+	// Lombok 의존성 추가
+	implementation 'org.projectlombok:lombok:1.18.20'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	compileOnly 'org.projectlombok:lombok:1.18.22'
+	annotationProcessor 'org.projectlombok:lombok:1.18.22'
+	testCompileOnly 'org.projectlombok:lombok:1.18.22'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+
+
+
+
+
+
+
+
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
